@@ -1,0 +1,19 @@
+In section 2.4 of the reading, go over into more detail about the
+difference between the public and private modifiers as well as show why
+they are important. In a typical class, the interface normally consists of
+a constructor, fields, and methods. However, we do not always want to
+expose all three of these to the client. This is where the public and
+private modifier come to play. The public modifier makes it so that anybody
+can change the value of a field into anything they want. To work around
+this, we replace public into private. This seems like a fix but now we
+cannot have access to the value at a certain field. In order to work around
+this, we make getter and setter methods. The getter methods get the value
+at a certain field and the setter methods set the value at the field given
+the arguments. The reason for making a seperate method for setting values
+is so that the author can put restrictions as to what type of values the
+field can have by putting if statements inside the setter method itself. If
+a certain value does not meet the criteria, the author can throw out an
+error. However, the client only knows about this error during runtime after
+the method has been called. If we want to let the client know the
+acceptable parameters of a field, we include them inside Javadocs on top of
+the setter method itself. 
