@@ -54,13 +54,13 @@ public class Population {
                 if (population.size() > 1) {
                     organism.decrementEnergy();
                     for (int i = 0; i < 8; i++) {
-                        Organism z = population
+                        Organism randOrg = population
                                 .get(ThreadLocalRandom.current().nextInt(population.size()));
-                        while (z == organism) {
-                            z = population
+                        while (randOrg == organism) {
+                            randOrg = population
                                     .get(ThreadLocalRandom.current().nextInt(population.size()));
                         }
-                        z.incrementEnergy();
+                        randOrg.incrementEnergy();
                     }
                 }
             }
@@ -83,15 +83,15 @@ public class Population {
      * @return
      */
     public double calculateCooperationMean() {
-        double ret = 0;
+        double cooperationTotal = 0.0;
         for (Organism o : population) {
-            ret += o.getCooperationProbability();
+            cooperationTotal += o.getCooperationProbability();
         }
-        return ret / population.size();
+        return cooperationTotal / population.size();
     }
 
     public Map<String, Integer> getPopulationCounts() {
-        Map<String, Integer> map = new HashMap<>();
+        Map<String, Integer> populationMap = new HashMap<>();
         int coopCount = 0, defCount = 0, partCount = 0;
         for (Organism o : population) {
             switch (o.getType()) {
@@ -105,10 +105,10 @@ public class Population {
                 partCount++;
             }
         }
-        map.put("Cooperator", new Integer(coopCount));
-        map.put("Defector", new Integer(defCount));
-        map.put("PartialCooperator", new Integer(partCount));
-        return map;
+        populationMap.put("Cooperator", new Integer(coopCount));
+        populationMap.put("Defector", new Integer(defCount));
+        populationMap.put("PartialCooperator", new Integer(partCount));
+        return populationMap;
     }
 
 }
