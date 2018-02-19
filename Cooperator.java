@@ -1,27 +1,40 @@
 
 public class Cooperator extends Organism {
 
+	/**
+	 * Constructor with default methods of Organism abstract class
+	 */
 	public Cooperator() {
 		super();
 	}
 	
-	String getType() {
+	/**
+	 * @return: Return type of organism
+	 */
+	public String getType() {
 		return "Cooperator";
 	}
 
-
-	Organism reproduce() {
+	/**
+	 * Reproduce a new Cooperator and decreased its energy by 10
+	 * @return: the new Cooperator
+	 */
+	public Organism reproduce() {
 		this.reduceEnergyBy10();
 		return new Cooperator();
 	}
 
-	
-	double getCooperationProbability() {
+	/**
+	 * @return: the cooperation probability of Cooperator
+	 */
+	public double getCooperationProbability() {
 		return 1.0;
 	}
 
-	
-	boolean cooperates() {
+	/**
+	 * @return: a boolean - the ability to cooperate of PartialCooperator
+	 */
+	public boolean cooperates() {
 		return true;
 	}
 
