@@ -55,6 +55,7 @@ public class Population {
             if (organism.cooperates(generator) && organism.getEnergy() >= 1) {
                 if (population.size() > 1) {
                     organism.decrementEnergy();
+                    // Chooses a random organism in the populatino to replace
                     for (int i = 0; i < 8; i++) {
                         Organism randOrg = population
                                 .get(generator.nextInt(population.size()));
@@ -72,7 +73,7 @@ public class Population {
                 List.addFirst(organism.reproduce());
             }
         }
-
+        
         while (List.size() > 0) {
             Organism n = List.poll();
             population.set(generator.nextInt(population.size()), n);
