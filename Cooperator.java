@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Cooperator extends Organism {
 
@@ -34,8 +35,8 @@ public class Cooperator extends Organism {
 	/**
 	 * @return: a boolean - the ability to cooperate of PartialCooperator
 	 */
-	public boolean cooperates() {
+	@Override
+	public boolean cooperates(Random generator) {
 		return true;
 	}
-
 }

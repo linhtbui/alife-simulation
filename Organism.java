@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public abstract class Organism {
 
 	private int energy;
@@ -51,6 +53,6 @@ public abstract class Organism {
 	public abstract String getType();
 	public abstract Organism reproduce();
 	public abstract double getCooperationProbability();
-	public abstract boolean cooperates();
+	public abstract boolean cooperates(Random generator);
 }
 

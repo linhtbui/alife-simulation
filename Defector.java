@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Defector extends Organism {
 
 	/**
@@ -32,7 +34,7 @@ public class Defector extends Organism {
 	/**
 	 * @return: a boolean - the ability to cooperate of Defectors
 	 */
-	public boolean cooperates() {
+	public boolean cooperates(Random generator) {
 		return false;
 	}
 

@@ -3,11 +3,13 @@ import java.util.LinkedList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
 public class Population {
     private ArrayList<Organism> population;
-
+    
+    //pass in a seed to recreate the result
+    static Random generator = new Random(15);
     
     /**
      * Is a constructor for a population
@@ -50,15 +52,15 @@ public class Population {
             organism.update();
 
             // Cooperation
-            if (organism.cooperates() && organism.getEnergy() >= 1) {
+            if (organism.cooperates(generator) && organism.getEnergy() >= 1) {
                 if (population.size() > 1) {
                     organism.decrementEnergy();
                     for (int i = 0; i < 8; i++) {
                         Organism randOrg = population
-                                .get(ThreadLocalRandom.current().nextInt(population.size()));
+                                .get(generator.nextInt(population.size()));
                         while (randOrg == organism) {
                             randOrg = population
-                                    .get(ThreadLocalRandom.current().nextInt(population.size()));
+                                    .get(generator.nextInt(population.size()));
                         }
                         randOrg.incrementEnergy();
                     }
@@ -73,7 +75,7 @@ public class Population {
 
         while (List.size() > 0) {
             Organism n = List.poll();
-            population.set(ThreadLocalRandom.current().nextInt(population.size()), n);
+            population.set(generator.nextInt(population.size()), n);
         }
     }
 

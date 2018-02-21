@@ -2,7 +2,6 @@ import java.util.Random;
 
 public class PartialCooperator extends Organism {
 
-	Random random = new Random();
 	/**
 	 * Constructor with default methods of Organism abstract class
 	 */
@@ -34,8 +33,9 @@ public class PartialCooperator extends Organism {
 	/**
 	 * @return: a boolean - the ability to cooperate of PartialCooperator
 	 */
-	public boolean cooperates() {
-		return this.random.nextBoolean();
+	public boolean cooperates(Random generator) {
+		
+		return generator.nextInt(1) > 0.5;
 	}
 
 	
