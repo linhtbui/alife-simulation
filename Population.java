@@ -46,6 +46,7 @@ public class Population {
      */
     public void update() {
 
+        // List to store new reproduced organisms
         LinkedList<Organism> List = new LinkedList<>();
 
         for (Organism organism : population) {
