@@ -74,6 +74,7 @@ public class Population {
             }
         }
         
+        // Gets all of the reproduced organisms until the LinkedList is null and replaced a random organism in population. 
         while (List.size() > 0) {
             Organism n = List.poll();
             population.set(generator.nextInt(population.size()), n);
